@@ -53,7 +53,7 @@ function About() {
 
         <CertificationBadges />
 
-        {/* <Github /> */}
+        <Github />
       </Container>
     </Container>
   );
