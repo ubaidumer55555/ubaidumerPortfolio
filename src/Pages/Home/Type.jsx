@@ -9,7 +9,7 @@ function Type() {
           "Software Development Team Lead",
           "Senior Software Engineer",
           "Senior MERN Stack Developer",
-          "Solution Architect",
+          "AWS Certified Solutions Architect",
         ],
         autoStart: true,
         loop: true,
