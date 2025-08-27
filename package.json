@@ -11,6 +11,7 @@
     "@tsparticles/slim": "^3.5.0",
     "bootstrap": "^5.3.3",
     "emailjs-com": "^3.2.0",
+    "jiti": "^2.5.1",
     "pdfjs-dist": "^4.5.136",
     "react": "^18.3.1",
     "react-bootstrap": "^2.10.4",
@@ -30,7 +31,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --fix",
+    "ts": "tsc --noEmit"
   },
   "eslintConfig": {
     "extends": [
@@ -49,5 +52,19 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.34.0",
+    "@types/react": "^19.1.11",
+    "@types/react-dom": "^19.1.8",
+    "@typescript-eslint/eslint-plugin": "^8.41.0",
+    "@typescript-eslint/parser": "^8.41.0",
+    "eslint": "^9.34.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "globals": "^16.3.0",
+    "typescript": "^5.9.2",
+    "typescript-eslint": "^8.41.0"
   }
 }
