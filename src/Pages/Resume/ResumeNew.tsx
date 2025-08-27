@@ -1,21 +1,23 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect, SetStateAction } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Particle from "../../Components/Particle";
 import pdf from "../../Assets/Ubaid_Umer_Resume.pdf";
 import { AiOutlineDownload } from "react-icons/ai";
-import { Document, Page, pdfjs } from "react-pdf";
+import { Document, Page, pdfjs, OnDocumentLoadSuccess } from "react-pdf";
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 import "react-pdf/dist/Page/TextLayer.css";
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 
 function ResumeNew() {
   const [width, setWidth] = useState(1200);
-  const [numPages, setNumPages] = useState(null);
+  const [numPages, setNumPages] = useState(0);
   const [pageNumber, setPageNumber] = useState(1);
 
-  const onDocumentLoadSuccess = ({ numPages }) => {
-    setNumPages(numPages);
+  const onDocumentLoadSuccess: OnDocumentLoadSuccess = (
+    pdf: SetStateAction<number>
+  ) => {
+    setNumPages(pdf);
   };
 
   useEffect(() => {

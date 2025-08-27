@@ -1,44 +1,44 @@
 {
-  // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
-    // File Layout
-    // "rootDir": "./src",
-    // "outDir": "./dist",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
 
-    // Environment Settings
-    // See also https://aka.ms/tsconfig/module
-    "module": "nodenext",
-    "target": "esnext",
-    "types": [],
-    // For nodejs:
-    // "lib": ["esnext"],
-    // "types": ["node"],
-    // and npm install -D @types/node
+    /* File Layout */
+    "rootDir": "./src",
+    "outDir": "./dist",
 
-    // Other Outputs
+    /* Environment Settings */
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "types": ["react", "react-dom"],
+
+    /* Other Outputs */
     "sourceMap": true,
-    "declaration": true,
-    "declarationMap": true,
+    "declaration": false,
+    "declarationMap": false,
 
-    // Stricter Typechecking Options
+    /* Stricter Typechecking Options */
+    "strict": true,
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
 
-    // Style Options
-    // "noImplicitReturns": true,
-    // "noImplicitOverride": true,
-    // "noUnusedLocals": true,
-    // "noUnusedParameters": true,
-    // "noFallthroughCasesInSwitch": true,
-    // "noPropertyAccessFromIndexSignature": true,
-
-    // Recommended Options
-    "strict": true,
+    /* JSX / React */
     "jsx": "react-jsx",
-    "verbatimModuleSyntax": true,
+
+    /* Module Handling */
     "isolatedModules": true,
-    "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
-    "skipLibCheck": true,
-  }
+    "skipLibCheck": true
+
+    /* ⚠️ Removed:
+       - "verbatimModuleSyntax": true (not needed for React frontend apps)
+       - "nodenext" (use ESNext instead)
+       - "declaration": true (only needed for publishing libs)
+       - "noUncheckedSideEffectImports" (still experimental, can break builds)
+    */
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
 }
