@@ -41,7 +41,7 @@ const particleOptions = {
   interactivity: {
     events: {
       onClick: {
-        enable: true,
+        enable: false,
         mode: "push",
       },
     },

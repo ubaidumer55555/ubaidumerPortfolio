@@ -1,7 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@500;700;800&display=swap");
+
+:root {
+  --font-body: "Raleway", sans-serif;
+  --font-title: "Instrument Serif", "Geist Sans", Georgia, serif;
+  --font-title-sans: "Geist Sans", system-ui, sans-serif;
+}
+
 body {
   margin: 0;
-  font-family: "Raleway", serif !important;
+  font-family: var(--font-body) !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-image: linear-gradient(to left, rgb(27 20 41), rgb(20 15 35));
