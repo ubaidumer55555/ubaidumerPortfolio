@@ -7,15 +7,14 @@ function ContactMe() {
       <Container>
         <Row>
           <Col className="contact-me">
-            <h1 style={{ fontSize: "2.6em" }}>
+            <h1 className="contact-heading" style={{ fontSize: "2.6em" }}>
               Let's Connect Via <span className="purple">Email</span>
             </h1>
             <p>
               Feel free to email me at{" "}
               <a
                 href="mailto:ubaid.umer55555@gmail.com"
-                style={{ textDecoration: "none" }}
-              >
+                style={{ textDecoration: "none" }}>
                 <span className="purple">
                   <b>ubaid.umer55555@gmail.com</b>
                 </span>
