@@ -10,10 +10,13 @@ function AboutCard() {
           <p style={{ textAlign: "justify" }}>
             Hi Everyone, I am <span className='purple'>Ubaid Umer </span>
             from <span className='purple'> Lahore, Pakistan.</span>
-            <br />I am currently employed as a software developer at{" "}
-            <span className='purple'>FRIZHUB </span>.
+            <br />
+            Senior Software Engineer and team lead with hands-on experience in
+            managing <span className='purple'>projects</span> and{" "}
+            <span className='purple'>engineering </span>
+            teams.
             <br />I have completed Bachelors (BSSE) in Software Engineering at{" "}
-            <span className='purple'>COMSATS </span>. Lahore.
+            <span className='purple'>COMSATS</span> Lahore.
             <br />
             <br />
             Apart from coding, some other activities that I love to do!
