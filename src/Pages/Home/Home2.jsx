@@ -1,72 +1,144 @@
-import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import myImg from "../../Assets/avatar.svg";
-import Tilt from "react-parallax-tilt";
+import React, { useState } from "react";
+import { Container, Row, Col, Carousel } from "react-bootstrap";
 import { AiFillGithub } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
+import { ImPointRight } from "react-icons/im";
+import fintech from "../../Assets/Industries/fintech.png";
+import food from "../../Assets/Industries/food.png";
+import delivery from "../../Assets/Industries/delivery.png";
+import ecommerce from "../../Assets/Industries/ecommerce.png";
+import travel from "../../Assets/Industries/travel.png";
+import digital from "../../Assets/Industries/digital.png";
+
+const industries = [
+  {
+    title: "FinTech",
+    description:
+      "Digital assets, wealth platforms, and secure financial products.",
+    image: fintech,
+    bullet: (
+      <>
+        Building secure <span className="purple">FinTech</span> products wealth
+        platforms, payments, and digital asset experiences
+      </>
+    ),
+  },
+  {
+    title: "Food Chain",
+    description: "QSR platforms, menus, and high-scale restaurant operations.",
+    image: food,
+    bullet: (
+      <>
+        Scaling <span className="purple">Food Chain</span> platforms for menus,
+        operations, and high-traffic restaurant brands
+      </>
+    ),
+  },
+  {
+    title: "Delivery Systems",
+    description:
+      "Order flow, logistics-ready web apps, and real-time experiences.",
+    image: delivery,
+    bullet: (
+      <>
+        Shipping reliable <span className="purple">Delivery Systems</span> with
+        real-time order flow and logistics-ready apps
+      </>
+    ),
+  },
+  {
+    title: "E-commerce",
+    description:
+      "Storefronts, checkout flows, and conversion-focused platforms.",
+    image: ecommerce,
+    bullet: (
+      <>
+        Crafting conversion-focused <span className="purple">E-commerce</span>{" "}
+        storefronts and checkout experiences
+      </>
+    ),
+  },
+  {
+    title: "Travel & Experiences",
+    description:
+      "Event and travel platforms built for engagement and discovery.",
+    image: travel,
+    bullet: (
+      <>
+        Creating engaging <span className="purple">Travel & Experience</span>{" "}
+        platforms for discovery and events from scenic tour flows to memorable
+        booking journeys
+      </>
+    ),
+  },
+  {
+    title: "Digital Assets",
+    description:
+      "Estate planning, file security, and crypto-safe product suites.",
+    image: digital,
+    bullet: (
+      <>
+        Protecting <span className="purple">Digital Assets</span> with secure
+        product suites for files, estates, and crypto
+      </>
+    ),
+  },
+];
 
 function Home2() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const activeIndustry = industries[activeIndex];
+
   return (
     <Container fluid className="home-about-section" id="about">
       <Container>
         <Row>
-          <Col md={8} className="home-about-description">
-            <h1 style={{ fontSize: "2.6em" }}>
-              LET ME <span className="purple"> INTRODUCE </span> MYSELF
+          <Col md={12} className="home-about-description home-about-centered">
+            <h1 className="home-about-title" style={{ fontSize: "2.6em" }}>
+              INDUSTRIES I'VE <span className="purple">BUILT</span>
             </h1>
-            <p className="home-about-body">
-              I've grown to love programming and think I've learned a thing or
-              two... 🤷‍♂️
-              <br />
-              <br />I am fluent in classics like
-              <i>
-                <b className="purple"> Javascript </b>
-              </i>
-              and
-              <i>
-                <b className="purple"> Typescript. </b>
-              </i>
-              <br />
-              <br />
-              My field of Interest's are building new &nbsp;
-              <i>
-                <b className="purple">
-                  E-commerce, Fin-Tech, Food Chain Websites{" "}
-                </b>{" "}
-              </i>
-              and also in areas related to{" "}
-              <i>
-                <b className="purple">Product Based Companies.</b>
-              </i>
-              <br />
-              <br />
-              Whenever possible, I also apply my passion for developing products
-              with
-              <i>
-                <b className="purple"> Node.js</b>
-              </i>{" "}
-              and
-              <i>
-                <b className="purple"> Modern Javascript Library </b>
-              </i>
-              and Frameworks like
-              <i>
-                <b className="purple">
-                  {" "}
-                  Express.js, Nest.js, React.js and Next.js
-                </b>
-              </i>
-            </p>
-          </Col>
-          <Col md={4} className="myAvtar">
-            <Tilt>
-              <img src={myImg} className="img-fluid" alt="avatar" />
-            </Tilt>
           </Col>
         </Row>
+
+        <Row>
+          <Col md={12} className="home-industry-col">
+            <Carousel
+              fade
+              interval={3000}
+              pause="hover"
+              className="industry-carousel"
+              indicators
+              controls
+              activeIndex={activeIndex}
+              onSelect={(selectedIndex) => setActiveIndex(selectedIndex)}>
+              {industries.map((item) => (
+                <Carousel.Item key={item.title}>
+                  <div className="industry-slide">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="industry-slide-image"
+                    />
+                    <div className="industry-slide-caption">
+                      <h3>{item.title}</h3>
+                      <p>{item.description}</p>
+                    </div>
+                  </div>
+                </Carousel.Item>
+              ))}
+            </Carousel>
+
+            <div
+              key={activeIndustry.title}
+              className="industry-sync-bullet about-activity">
+              <ImPointRight /> {activeIndustry.bullet}
+            </div>
+          </Col>
+        </Row>
+
         <Row>
           <Col md={12} className="home-about-social">
-            <h1>FIND ME ON</h1>
+            <h1 className="home-about-social-title">FIND ME ON</h1>
             <p>
               Feel free to <span className="purple">connect </span>with me
             </p>
@@ -76,8 +148,7 @@ function Home2() {
                   href="https://github.com/ubaidumer55555"
                   target="_blank"
                   rel="noreferrer"
-                  className="icon-colour  home-social-icons"
-                >
+                  className="icon-colour home-social-icons">
                   <AiFillGithub />
                 </a>
               </li>
@@ -86,8 +157,7 @@ function Home2() {
                   href="https://www.linkedin.com/in/ubaid-umer-98b5b2203/"
                   target="_blank"
                   rel="noreferrer"
-                  className="icon-colour  home-social-icons"
-                >
+                  className="icon-colour home-social-icons">
                   <FaLinkedinIn />
                 </a>
               </li>
@@ -98,4 +168,5 @@ function Home2() {
     </Container>
   );
 }
+
 export default Home2;
