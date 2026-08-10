@@ -364,7 +364,7 @@ button:focus {
 .home-content {
   position: relative;
   z-index: 2;
-  padding: 7.5rem 0 2rem !important;
+  padding: 9rem 0 2rem !important;
   color: whitesmoke;
   text-align: left;
 }
