@@ -9,30 +9,30 @@ import ContactMe from "./ContactMe";
 function Home() {
   return (
     <section>
-      <Container fluid className='home-section' id='home'>
+      <Container fluid className="home-section" id="home">
         <Particle />
-        <Container className='home-content'>
-          <Row className='align-items-center'>
-            <Col md={7} className='home-header'>
-              <h1 style={{ paddingBottom: 15 }} className='heading'>
+        <Container className="home-content">
+          <Row className="align-items-center">
+            <Col md={7} className="home-header">
+              <h1 style={{ paddingBottom: 15 }} className="heading-name">
+                I'm
+                <strong className="main-name"> Ubaid Umer</strong>
+              </h1>
+
+              <h1 style={{ paddingBottom: 15 }} className="heading">
                 Hello and welcome! Explore my portfolio to discover my passion
                 and creativity.{" "}
-                <span className='wave' role='img' aria-labelledby='wave'>
+                <span className="wave" role="img" aria-labelledby="wave">
                   👋🏻
                 </span>
               </h1>
 
-              <h1 className='heading-name'>
-                I'M
-                <strong className='main-name'> Ubaid Umer</strong>
-              </h1>
-
-              <div style={{ padding: 50, textAlign: "left" }}>
+              <div className='home-typewriter'>
                 <Type />
               </div>
             </Col>
 
-            <Col md={5} className='home-badge-col'>
+            <Col md={5} className="home-badge-col">
               <AvatarBadge />
             </Col>
           </Row>
