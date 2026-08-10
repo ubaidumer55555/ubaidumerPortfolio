@@ -319,8 +319,8 @@ button:focus {
 
 .home-about-section {
   position: relative;
-  padding-bottom: 70px !important;
-  padding-top: 70px !important;
+  padding-bottom: 30px !important;
+  padding-top: 100px !important;
 }
 
 .home-about-description {
@@ -338,13 +338,22 @@ button:focus {
 
 .home-about-social {
   text-align: center !important;
-  padding-top: 25px;
+  padding-top: 10px;
   color: white !important;
+}
+
+.home-about-social h1 {
+  margin-bottom: 0.25em;
+}
+
+.home-about-social p {
+  margin-bottom: 0.5em;
 }
 
 .home-about-social-links {
   justify-content: center !important;
-  padding-top: 15px !important;
+  padding-top: 4px !important;
+  margin-bottom: 0 !important;
   display: inline-block !important;
   position: relative !important;
   padding-inline-start: 0 !important;
@@ -633,6 +642,45 @@ button:focus {
   padding-top: 50px;
   padding-bottom: 50px;
   justify-content: center;
+}
+
+.resume-document {
+  position: relative;
+  z-index: 1;
+}
+
+.resume-page {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45);
+}
+
+.resume-page canvas {
+  max-width: 100%;
+  height: auto !important;
+}
+
+.resume-controls {
+  justify-content: center;
+  position: relative;
+  margin: 20px;
+  z-index: 1;
+}
+
+.resume-page-label {
+  min-width: 100px;
+  max-width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.resume-status {
+  color: #fff;
+  padding: 2rem;
+  text-align: center;
+}
+
+.resume-status a {
+  color: #c770f0;
 }
 
 .resume-left {

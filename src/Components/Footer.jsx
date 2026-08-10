@@ -7,32 +7,32 @@ function Footer() {
   let date = new Date();
   let year = date.getFullYear();
   return (
-    <Container fluid className='footer'>
+    <Container fluid className="footer">
       <Row>
-        <Col md='4' className='footer-copywright'>
+        <Col md="4" className="footer-copywright">
           <h3>Designed and Developed by Ubaid Umer</h3>
         </Col>
-        <Col md='4' className='footer-copywright'>
+        <Col md="4" className="footer-copywright">
           <h3>Copyright © {year} UU .</h3>
         </Col>
-        <Col md='4' className='footer-body'>
-          <ul className='footer-icons'>
-            <li className='social-icons'>
+        <Col md="4" className="footer-body">
+          <ul className="footer-icons">
+            <li className="social-icons">
               <a
-                href='https://github.com/ubaidumer55555'
+                href="https://github.com/ubaidumer55555"
                 style={{ color: "white" }}
-                target='_blank'
-                rel='noopener noreferrer'
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <AiFillGithub />
               </a>
             </li>
-            <li className='social-icons'>
+            <li className="social-icons">
               <a
-                href='https://www.linkedin.com/in/ubaid-umer-98b5b2203/'
+                href="https://www.linkedin.com/in/ubaid-umer-98b5b2203/"
                 style={{ color: "white" }}
-                target='_blank'
-                rel='noopener noreferrer'
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <FaLinkedinIn />
               </a>

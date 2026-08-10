@@ -5,88 +5,98 @@ import Particle from "../../Components/Particle";
 import pdf from "../../Assets/Ubaid_Umer_Resume.pdf";
 import { AiOutlineDownload } from "react-icons/ai";
 import { Document, Page, pdfjs } from "react-pdf";
-import "react-pdf/dist/esm/Page/AnnotationLayer.css";
+import "react-pdf/dist/Page/AnnotationLayer.css";
 import "react-pdf/dist/Page/TextLayer.css";
-pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
+
+// Served from /public so Vite doesn't transform the worker (breaks in browser)
+pdfjs.GlobalWorkerOptions.workerSrc = "/pdf.worker.min.mjs";
 
 function ResumeNew() {
   const [width, setWidth] = useState(1200);
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
+  const [loadError, setLoadError] = useState(null);
 
   const onDocumentLoadSuccess = ({ numPages }) => {
     setNumPages(numPages);
+    setLoadError(null);
   };
 
   useEffect(() => {
-    setWidth(window.innerWidth);
+    const updateWidth = () => setWidth(window.innerWidth);
+    updateWidth();
+    window.addEventListener("resize", updateWidth);
+    return () => window.removeEventListener("resize", updateWidth);
   }, []);
 
   return (
     <div>
-      <Container fluid className='resume-section'>
+      <Container fluid className="resume-section">
         <Particle />
-        <Row className='resume'>
+        <Row className="resume">
           <Document
             file={pdf}
             onLoadSuccess={onDocumentLoadSuccess}
-            className='d-flex justify-content-center'
+            onLoadError={(error) => {
+              console.error("PDF load error:", error);
+              setLoadError(error?.message || "Failed to load PDF");
+            }}
+            loading={<div className="resume-status">Loading resume…</div>}
+            error={
+              <div className="resume-status">
+                {loadError || "Could not display resume."}{" "}
+                <a href={pdf} target="_blank" rel="noreferrer">
+                  Open PDF
+                </a>
+              </div>
+            }
+            className="d-flex justify-content-center resume-document"
           >
-            <Page pageNumber={pageNumber} scale={width > 786 ? 1.7 : 0.6} />
+            <Page
+              pageNumber={pageNumber}
+              scale={width > 786 ? 1.7 : 0.6}
+              className="resume-page"
+              renderTextLayer
+              renderAnnotationLayer={false}
+            />
           </Document>
         </Row>
-        <Row
-          style={{
-            justifyContent: "center",
-            position: "relative",
-            margin: "20px",
-          }}
-        >
-          <Col
-            className='d-flex'
-            style={{
-              marginLeft: "450px",
-              justifyContent: "space-evenly",
-              marginRight: "450px",
-            }}
-          >
+        <Row className="resume-controls">
+          <Col className="d-flex justify-content-center align-items-center gap-3 flex-wrap">
             <Button
-              variant='primary'
+              variant="primary"
               style={{ minWidth: "100px", maxWidth: "250px" }}
-              onClick={() => setPageNumber(pageNumber > 1 ? pageNumber - 1 : 1)}
+              disabled={!numPages || pageNumber <= 1}
+              onClick={() => setPageNumber((page) => Math.max(1, page - 1))}
             >
-              &nbsp;Previous
+              Previous
             </Button>
-            <span
-              style={{
-                minWidth: "100px",
-                maxWidth: "250px",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <b className='purple'>
-                {" "}
-                Page {pageNumber} of {numPages}
+            <span className="resume-page-label">
+              <b className="purple">
+                Page {pageNumber}
+                {numPages ? ` of ${numPages}` : ""}
               </b>
             </span>
             <Button
-              variant='primary'
+              variant="primary"
               style={{ minWidth: "100px", maxWidth: "250px" }}
+              disabled={!numPages || pageNumber >= numPages}
               onClick={() =>
-                setPageNumber(pageNumber < numPages ? pageNumber + 1 : numPages)
+                setPageNumber((page) =>
+                  numPages ? Math.min(numPages, page + 1) : page,
+                )
               }
             >
-              &nbsp;Next
+              Next
             </Button>
           </Col>
         </Row>
         <Row style={{ justifyContent: "center", position: "relative" }}>
           <Button
-            variant='primary'
+            variant="primary"
             href={pdf}
-            target='_blank'
+            target="_blank"
+            rel="noreferrer"
             style={{ maxWidth: "250px" }}
           >
             <AiOutlineDownload />
