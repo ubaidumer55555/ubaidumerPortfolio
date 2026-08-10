@@ -8,8 +8,8 @@ function CertificationBadges() {
       <Col xs={4} md={2}>
         <img
           src={AwsSaaC03BadgeImg}
-          alt='AWS Certified Solutions Architect'
-          className='img-fluid'
+          alt="AWS Certified Solutions Architect"
+          className="img-fluid"
         />
       </Col>
     </Row>
