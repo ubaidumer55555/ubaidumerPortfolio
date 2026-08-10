@@ -4,37 +4,37 @@ import { ImPointRight } from "react-icons/im";
 
 function AboutCard() {
   return (
-    <Card className='quote-card-view'>
+    <Card className="quote-card-view">
       <Card.Body>
-        <blockquote className='blockquote mb-0'>
+        <blockquote className="blockquote mb-0">
           <p style={{ textAlign: "justify" }}>
-            Hi Everyone, I am <span className='purple'>Ubaid Umer </span>
-            from <span className='purple'> Lahore, Pakistan.</span>
+            Hi Everyone, I am <span className="purple">Ubaid Umer </span>
+            from <span className="purple"> Lahore, Pakistan.</span>
             <br />
             Senior Software Engineer and team lead with hands-on experience in
-            managing <span className='purple'>projects</span> and{" "}
-            <span className='purple'>engineering </span>
+            managing <span className="purple">projects</span> and{" "}
+            <span className="purple">engineering </span>
             teams.
             <br />I have completed Bachelors (BSSE) in Software Engineering at{" "}
-            <span className='purple'>COMSATS</span> Lahore.
+            <span className="purple">COMSATS</span> Lahore.
             <br />
             <br />
             Apart from coding, some other activities that I love to do!
           </p>
           <ul>
-            <li className='about-activity'>
+            <li className="about-activity">
               <ImPointRight /> Playing Games
             </li>
-            <li className='about-activity'>
+            <li className="about-activity">
               <ImPointRight /> Writing Tech Blogs
             </li>
-            <li className='about-activity'>
+            <li className="about-activity">
               <ImPointRight /> Learning New Tech
             </li>
           </ul>
 
           <p style={{ color: "rgb(155 126 172)" }}>"Let's Code it out!" </p>
-          <footer className='blockquote-footer'>Ubaid Umer</footer>
+          <footer className="blockquote-footer">Ubaid Umer</footer>
         </blockquote>
       </Card.Body>
     </Card>
