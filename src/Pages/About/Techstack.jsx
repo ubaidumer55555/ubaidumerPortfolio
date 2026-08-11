@@ -6,7 +6,6 @@ import {
   DiNodejs,
   DiMongodb,
   DiGit,
-  DiRedis,
 } from "react-icons/di";
 import {
   SiFirebase,
@@ -15,55 +14,37 @@ import {
   SiDocker,
   SiExpress,
   SiNestjs,
+  SiRedis,
 } from "react-icons/si";
 import { TbBrandTypescript } from "react-icons/tb";
 import { FaAws } from "react-icons/fa";
+import TechIconCard from "../../Components/TechIconCard";
+
+const skills = [
+  { name: "JavaScript", icon: DiJavascript1 },
+  { name: "TypeScript", icon: TbBrandTypescript },
+  { name: "Node.js", icon: DiNodejs },
+  { name: "Express.js", icon: SiExpress },
+  { name: "NestJS", icon: SiNestjs },
+  { name: "React", icon: DiReact },
+  { name: "Next.js", icon: SiNextdotjs },
+  { name: "Git", icon: DiGit },
+  { name: "MongoDB", icon: DiMongodb },
+  { name: "Firebase", icon: SiFirebase },
+  { name: "Redis", icon: SiRedis },
+  { name: "PostgreSQL", icon: SiPostgresql },
+  { name: "AWS", icon: FaAws },
+  { name: "Docker", icon: SiDocker },
+];
 
 function Techstack() {
   return (
     <Row style={{ justifyContent: "center", paddingBottom: "50px" }}>
-      <Col xs={4} md={2} className="tech-icons">
-        <DiJavascript1 />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <TbBrandTypescript />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <DiNodejs />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiExpress />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiNestjs />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <DiReact />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiNextdotjs />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <DiGit />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <DiMongodb />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiFirebase />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <DiRedis />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiPostgresql />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <FaAws />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiDocker />
-      </Col>
+      {skills.map((skill) => (
+        <Col xs={4} md={2} className='tech-icons' key={skill.name}>
+          <TechIconCard icon={skill.icon} name={skill.name} />
+        </Col>
+      ))}
     </Row>
   );
 }

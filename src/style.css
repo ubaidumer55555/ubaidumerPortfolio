@@ -907,20 +907,150 @@ button:focus {
   padding-left: 25px !important;
   padding-right: 25px !important;
   height: auto !important;
+  perspective: 1200px;
 }
 
-.project-card-view {
-  box-shadow: 0 4px 5px 3px rgba(119, 53, 136, 0.459) !important;
-  color: white !important;
-  background-color: transparent !important;
-  opacity: 0.9 !important;
-  transition: all 0.5s ease 0s !important;
-  height: 100% !important;
+.project-flip {
+  width: 100%;
+  height: 460px;
+  cursor: pointer;
 }
-.project-card-view:hover {
-  transform: scale(1.02) !important;
-  overflow: hidden !important;
-  box-shadow: 0 4px 4px 5px rgba(129, 72, 144, 0.561) !important;
+
+.project-flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.65s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.project-flip:hover .project-flip-inner,
+.project-flip:focus-visible .project-flip-inner {
+  transform: rotateY(180deg);
+}
+
+.project-flip-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 5px 3px rgba(119, 53, 136, 0.459);
+}
+
+.project-flip-front {
+  background: rgba(12, 5, 19, 0.55);
+  border: 1px solid rgba(200, 137, 230, 0.45);
+  display: flex;
+  flex-direction: column;
+}
+
+.project-flip-image-wrap {
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  background: #0c0513;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 0.75rem 0;
+}
+
+.project-flip-image {
+  width: 100%;
+  height: 100%;
+  max-height: 300px;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  opacity: 1;
+}
+
+.project-flip-front-meta {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1.1rem 1.15rem;
+  text-align: center;
+}
+
+.project-flip-title {
+  margin: 0 !important;
+  color: #cd5ff8 !important;
+  font-size: 2rem !important;
+  font-weight: 800 !important;
+  font-family: var(--font-body) !important;
+  font-style: normal !important;
+  text-align: center !important;
+  letter-spacing: -0.02em;
+}
+
+.project-flip-tagline {
+  margin: 0.45rem 0 0;
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  text-align: center;
+  font-family: var(--font-body) !important;
+}
+
+.project-flip-back {
+  background: #c770f0;
+  color: #120813;
+  border: 1px solid #e4b5ff;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 1.35rem;
+  text-align: center;
+  box-shadow: 0 4px 4px 5px rgba(129, 72, 144, 0.35);
+}
+
+.project-flip-back .project-flip-title {
+  color: #120813 !important;
+  margin-bottom: 1rem !important;
+}
+
+.project-flip-points {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 420px;
+  text-align: left;
+}
+
+.project-flip-points li {
+  margin-bottom: 0.7rem;
+  color: #120813 !important;
+  font-size: 1rem;
+  line-height: 1.45;
+  font-family: var(--font-body) !important;
+  font-weight: 600;
+}
+
+.project-flip-points svg {
+  color: #120813;
+  margin-right: 0.4rem;
+}
+
+@media (max-width: 767px) {
+  .project-flip {
+    height: 400px;
+  }
+
+  .project-flip-image {
+    max-height: 240px;
+  }
+
+  .project-flip-title {
+    font-size: 1.65rem !important;
+  }
 }
 
 .blog-card {
@@ -1003,16 +1133,17 @@ button:focus {
 .tech-icons {
   font-size: 4.5em !important;
   margin: 15px !important;
-  padding: 10px !important;
+  padding: 0 !important;
   opacity: 0.93 !important;
-  border: 1.7px solid rgba(200, 137, 230, 0.637) !important;
+  border: none !important;
   vertical-align: middle !important;
   text-align: center !important;
-  border-radius: 5px !important;
-  display: table !important;
-  box-shadow: 4px 5px 4px 3px rgba(89, 4, 168, 0.137) !important;
-  overflow: hidden !important;
-  transition: all 0.4s ease 0s !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+  display: flex !important;
+  justify-content: center !important;
+  perspective: 900px;
 }
 
 @media (max-width: 767px) {
@@ -1022,10 +1153,96 @@ button:focus {
 }
 
 .tech-icons:hover {
-  transform: scale(1.05) !important;
-  overflow: hidden !important;
-  border: 2.2px solid rgba(197, 115, 230, 0.883) !important;
+  transform: none !important;
+  border: none !important;
 }
+
+.tech-flip {
+  width: 100%;
+  max-width: 140px;
+  height: 140px;
+  cursor: pointer;
+}
+
+.tech-flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.55s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.tech-flip:hover .tech-flip-inner,
+.tech-flip:focus-visible .tech-flip-inner {
+  transform: rotateY(180deg);
+}
+
+.tech-flip-face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 10px;
+  border: 1.7px solid rgba(200, 137, 230, 0.637);
+  box-shadow: 4px 5px 4px 3px rgba(89, 4, 168, 0.137);
+  padding: 0.65rem 0.4rem;
+}
+
+.tech-flip-front {
+  background: rgba(12, 5, 19, 0.35);
+  color: #ffffff;
+}
+
+.tech-flip-back {
+  background: #c770f0;
+  color: #120813;
+  border-color: #e4b5ff;
+  transform: rotateY(180deg);
+  box-shadow: 4px 5px 4px 3px rgba(199, 112, 240, 0.35);
+}
+
+.tech-flip-face svg {
+  width: 0.72em;
+  height: 0.72em;
+}
+
+.tech-flip-front svg {
+  color: #ffffff;
+  fill: currentColor;
+}
+
+.tech-flip-back svg {
+  color: #120813;
+  fill: currentColor;
+  filter: invert(0);
+}
+
+.tech-flip-label {
+  font-size: 0.22em !important;
+  font-weight: 700 !important;
+  font-family: var(--font-body) !important;
+  font-style: normal !important;
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+  max-width: 95%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tech-flip-front .tech-flip-label {
+  color: #e9d5ff;
+}
+
+.tech-flip-back .tech-flip-label {
+  color: #120813;
+}
+
 .tech-icon-images {
   padding: 20px !important;
   line-height: 1.6 !important;
