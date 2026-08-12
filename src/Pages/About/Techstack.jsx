@@ -15,14 +15,14 @@ import {
   SiExpress,
   SiNestjs,
   SiRedis,
-  SiTypescript,
 } from "react-icons/si";
+import { TbBrandTypescript } from "react-icons/tb";
 import { FaAws } from "react-icons/fa";
 import TechIconCard from "../../Components/TechIconCard";
 
 const skills = [
   { name: "JavaScript", icon: DiJavascript1 },
-  { name: "TypeScript", icon: SiTypescript },
+  { name: "TypeScript", icon: TbBrandTypescript },
   { name: "Node.js", icon: DiNodejs },
   { name: "Express.js", icon: SiExpress },
   { name: "NestJS", icon: SiNestjs },
@@ -41,8 +41,12 @@ function Techstack() {
   return (
     <Row style={{ justifyContent: "center", paddingBottom: "50px" }}>
       {skills.map((skill) => (
-        <Col xs={4} md={2} className='tech-icons' key={skill.name}>
-          <TechIconCard icon={skill.icon} name={skill.name} />
+        <Col xs={4} md={2} className="tech-icons" key={skill.name}>
+          <TechIconCard
+            icon={skill.icon}
+            name={skill.name}
+            frontIconColor={skill.frontIconColor}
+          />
         </Col>
       ))}
     </Row>

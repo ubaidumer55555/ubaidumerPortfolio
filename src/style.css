@@ -1212,14 +1212,11 @@ button:focus {
 }
 
 .tech-flip-front svg {
-  color: #ffffff;
-  fill: currentColor;
+  color: inherit;
 }
 
 .tech-flip-back svg {
   color: #120813;
-  fill: currentColor;
-  filter: invert(0);
 }
 
 .tech-flip-label {
