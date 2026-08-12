@@ -15,14 +15,14 @@ import {
   SiExpress,
   SiNestjs,
   SiRedis,
+  SiTypescript,
 } from "react-icons/si";
-import { TbBrandTypescript } from "react-icons/tb";
 import { FaAws } from "react-icons/fa";
 import TechIconCard from "../../Components/TechIconCard";
 
 const skills = [
   { name: "JavaScript", icon: DiJavascript1 },
-  { name: "TypeScript", icon: TbBrandTypescript },
+  { name: "TypeScript", icon: SiTypescript },
   { name: "Node.js", icon: DiNodejs },
   { name: "Express.js", icon: SiExpress },
   { name: "NestJS", icon: SiNestjs },
