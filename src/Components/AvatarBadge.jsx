@@ -1,5 +1,5 @@
 import React, { useCallback, useRef, useState } from "react";
-import avatarPhoto from "../Assets/avatar-badge.png";
+import avatarPhoto from "../Assets/avatar-badge.jpg";
 
 // Resting pose: right-to-left tilt (right side closer)
 const REST = { rotateX: 12, rotateY: -28 };
